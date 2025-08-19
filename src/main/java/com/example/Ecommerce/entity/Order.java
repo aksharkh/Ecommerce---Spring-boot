@@ -2,9 +2,7 @@ package com.example.Ecommerce.entity;
 
 
 import com.example.Ecommerce.enums.OrderStatus;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 
@@ -19,6 +17,8 @@ public class Order {
     private String customerId;
     private List<Object> items;
     private double totalAmount;
+
+    @Enumerated(EnumType.STRING)
     private OrderStatus status;
 
 }

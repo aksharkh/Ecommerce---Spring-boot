@@ -1,0 +1,4 @@
+{"eventId": "e1", "timestamp": "2025-07-29T10:00:00Z", "eventType": "OrderCreated", "orderId": "ORD001", "customerId": "CUST001", "items": [], "totalAmount": 150.75}
+{"eventId": "e2", "timestamp": "2025-07-29T11:05:00Z", "eventType": "PaymentReceived", "orderId": "ORD001", "amountPaid": 150.75}
+{"eventId": "e3", "timestamp": "2025-07-30T09:00:00Z", "eventType": "OrderCreated", "orderId": "ORD002", "customerId": "CUST002", "items": [], "totalAmount": 45.50}
+{"eventId": "e4", "timestamp": "2025-07-30T09:15:00Z", "eventType": "PaymentReceived", "orderId": "ORD002", "amountPaid": 20.00}

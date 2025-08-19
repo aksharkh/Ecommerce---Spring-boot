@@ -11,6 +11,5 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 public class OrderCreatedEventDTO extends EventDTO {
     private String customerId;
-    private List<Object> items;
     private double totalAmount;
 }
