@@ -2,6 +2,7 @@ package com.example.Ecommerce.services.serviceImp;
 
 import com.example.Ecommerce.dto.*;
 import com.example.Ecommerce.entity.Order;
+import com.example.Ecommerce.entity.OrderItem;
 import com.example.Ecommerce.enums.OrderStatus;
 import com.example.Ecommerce.notification.Observer;
 import com.example.Ecommerce.repository.OrderRepository;
@@ -11,6 +12,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Service
@@ -29,7 +31,7 @@ public class OrderServiceImp implements OrderService {
 
     @Override
     public void processEvent(EventDTO event) {
-        // Using a switch on the enum is clean and type-safe
+
         switch (event.getEventType()) {
             case OrderCreated:
                 handleOrderCreated((OrderCreatedEventDTO) event);
@@ -52,8 +54,17 @@ public class OrderServiceImp implements OrderService {
     private void handleOrderCreated(OrderCreatedEventDTO event) {
         Order order = modelMapper.map(event, Order.class);
         order.setStatus(OrderStatus.PENDING);
-        Order savedOrder = orderRepository.save(order);
-        notifyObservers(event, savedOrder);
+        if (event.getItems() != null) {
+            List<OrderItem> orderItems = event.getItems().stream()
+                    .map(itemDTO -> {
+                        OrderItem orderItem = modelMapper.map(itemDTO, OrderItem.class);
+                        orderItem.setOrder(order);
+                        return orderItem;
+                    }).collect(Collectors.toList());
+            order.setItems(orderItems);
+        }
+            Order savedOrder = orderRepository.save(order);
+            notifyObservers(event, savedOrder);
     }
 
     private void handlePaymentReceived(PaymentReceivedEventDTO event) {

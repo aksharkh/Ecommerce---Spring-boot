@@ -9,7 +9,7 @@ public class LoggerObserver implements  Observer{
 
     @Override
     public void update(EventDTO event, Order order){
-        System.out.println("[LOG Event processed:" + event.getEventType()
+        System.out.println("[LOG] Event processed:" + event.getEventType()
                             + " for Order ID: " + order.getOrderId()
                             + ". New status: " + order.getStatus());
     }

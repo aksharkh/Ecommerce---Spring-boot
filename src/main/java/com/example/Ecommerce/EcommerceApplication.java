@@ -23,30 +23,29 @@ public class EcommerceApplication {
 	}
 
 
-	// Spring injects the service interface and the gson bean
+
 	private final OrderService orderService;
 	private final Gson gson;
 
-	@Bean // This code will run automatically when the application starts
+	@Bean
 	public CommandLineRunner run() {
 		return args -> {
-			System.out.println("### STARTING EVENT PROCESSING ###");
-			// Read the events.json file from the resources folder
+			System.out.println("------------------------------STARTING EVENT PROCESSING-----------------------------------------------");
+
 			ClassPathResource resource = new ClassPathResource("events.json");
 			try (BufferedReader reader = new BufferedReader(new InputStreamReader(resource.getInputStream()))) {
-				// Read all lines from the file
+
 				String jsonContent = reader.lines().collect(Collectors.joining(System.lineSeparator()));
-				// Split file content into individual JSON objects (one per line)
+
 				for (String line : jsonContent.split(System.lineSeparator())) {
 					if (line.trim().isEmpty()) continue;
 					EventDTO event = gson.fromJson(line, EventDTO.class);
 					if (event != null) {
-						// Use the service to process the event
 						orderService.processEvent(event);
 					}
 				}
 			}
-			System.out.println("### EVENT PROCESSING COMPLETE ###");
+			System.out.println("--------------------------------------------EVENT PROCESSING COMPLETE-----------------------------------");
 		};
 	}
 }

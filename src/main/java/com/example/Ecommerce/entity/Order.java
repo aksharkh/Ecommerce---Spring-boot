@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -15,10 +16,14 @@ public class Order {
     @Id
     private String orderId;
     private String customerId;
-//    private List<Object> items;
+
     private double totalAmount;
 
     @Enumerated(EnumType.STRING)
     private OrderStatus status;
+
+
+    @OneToMany(mappedBy = "order",cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<OrderItem> items = new ArrayList<>();
 
 }

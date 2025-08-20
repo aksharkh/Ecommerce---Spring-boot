@@ -1,6 +1,10 @@
-{"eventId": "e1", "timestamp": "2025-08-20T10:00:00Z", "eventType": "OrderCreated", "orderId": "ORD001", "customerId": "CUST001", "totalAmount": 150.75}
-{"eventId": "e2", "timestamp": "2025-08-20T11:05:00Z", "eventType": "PaymentReceived", "orderId": "ORD001", "amountPaid": 150.75}
-{"eventId": "e3", "timestamp": "2025-08-20T14:30:00Z", "eventType": "ShippingScheduled", "orderId": "ORD001", "shippingDate": "2025-08-21T09:00:00Z"}
-{"eventId": "e4", "timestamp": "2025-08-21T09:00:00Z", "eventType": "OrderCreated", "orderId": "ORD002", "customerId": "CUST002", "totalAmount": 45.50}
-{"eventId": "e5", "timestamp": "2025-08-21T09:15:00Z", "eventType": "PaymentReceived", "orderId": "ORD002", "amountPaid": 20.00}
-{"eventId": "e6", "timestamp": "2025-08-21T10:00:00Z", "eventType": "OrderCancelled", "orderId": "ORD002", "reason": "Customer request"}
+{"eventId": "e101", "timestamp": "2025-08-20T11:00:00Z", "eventType": "OrderCreated", "orderId": "ORD101", "customerId": "CUST-A", "totalAmount": 250.00, "items": [{"itemId": "PROD-001", "qty": 2}, {"itemId": "PROD-005", "qty": 1}]}
+{"eventId": "e102", "timestamp": "2025-08-20T11:05:00Z", "eventType": "PaymentReceived", "orderId": "ORD101", "amountPaid": 250.00}
+{"eventId": "e103", "timestamp": "2025-08-20T14:00:00Z", "eventType": "ShippingScheduled", "orderId": "ORD101", "shippingDate": "2025-08-21T09:00:00Z"}
+{"eventId": "e201", "timestamp": "2025-08-21T09:00:00Z", "eventType": "OrderCreated", "orderId": "ORD202", "customerId": "CUST-B", "totalAmount": 45.50, "items": [{"itemId": "PROD-002", "qty": 5}]}
+{"eventId": "e202", "timestamp": "2025-08-21T09:15:00Z", "eventType": "PaymentReceived", "orderId": "ORD202", "amountPaid": 20.00}
+{"eventId": "e203", "timestamp": "2025-08-21T10:00:00Z", "eventType": "OrderCancelled", "orderId": "ORD202", "reason": "Customer request"}
+{"eventId": "e301", "timestamp": "2025-08-20T12:00:00Z", "eventType": "OrderCreated", "orderId": "ORD303", "customerId": "CUST-C", "totalAmount": 99.99, "items": [{"itemId": "PROD-003", "qty": 1}]}
+{"eventId": "e901", "timestamp": "2025-08-20T13:00:00Z", "eventType": "OrderCancelled", "orderId": "ORD999", "reason": "Order does not exist"}
+{"eventId": "e902", "timestamp": "2025-08-20T13:05:00Z", "eventType": "CustomerInfoUpdated", "orderId": "ORD101", "newAddress": "123 Main St"}
+{"eventId": "e903", "timestamp": "2025-08-20T13:10:00Z", "eventType": "ShippingScheduled", "orderId": "ORD888", "shippingDate": "2025-08-22T09:00:00Z"}

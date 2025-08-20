@@ -12,4 +12,5 @@ import java.util.List;
 public class OrderCreatedEventDTO extends EventDTO {
     private String customerId;
     private double totalAmount;
+    private List<ItemDTO> items;
 }
