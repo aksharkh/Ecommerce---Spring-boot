@@ -54,7 +54,7 @@ This project follows a modern, layered architecture to ensure a clean separation
 #### ### Steps
 1.  **Clone the repository:**
     ```shell
-    git clone <your-repository-url>
+    git clone https://github.com/aksharkh/Ecommerce---Spring-boot.git
     ```
 2.  **Navigate to the project directory:**
     ```shell
