@@ -15,7 +15,7 @@ public class Order {
     @Id
     private String orderId;
     private String customerId;
-    private List<Object> items;
+//    private List<Object> items;
     private double totalAmount;
 
     @Enumerated(EnumType.STRING)

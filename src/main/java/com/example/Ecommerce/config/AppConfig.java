@@ -1,8 +1,6 @@
 package com.example.Ecommerce.config;
 
-import com.example.Ecommerce.dto.EventDTO;
-import com.example.Ecommerce.dto.OrderCreatedEventDTO;
-import com.example.Ecommerce.dto.PaymentReceivedEventDTO;
+import com.example.Ecommerce.dto.*;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonDeserializer;
@@ -36,6 +34,11 @@ public class AppConfig {
                     return context.deserialize(jsonObject, OrderCreatedEventDTO.class);
                 case "PaymentReceived":
                     return context.deserialize(jsonObject, PaymentReceivedEventDTO.class);
+                case "ShippingScheduled":
+                    return context.deserialize(jsonObject, ShippingScheduledEventDTO.class);
+                case "OrderCancelled":
+                    return context.deserialize(jsonObject, OrderCancelledEventDTO.class);
+
                 default:
                     return null;
             }
